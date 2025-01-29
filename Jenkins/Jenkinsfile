@@ -75,7 +75,7 @@ pipeline {
         }
         stage("ImageScan") {
             steps {
-                sh 'trivy image prateekkumawat/sonarci:${BUILD_NUMBER} > trivyimage_${BUILD_NUMBER}.txt' 
+                sh 'trivy image priyeshpandey07/sonarci:${BUILD_NUMBER} > trivyimage_${BUILD_NUMBER}.txt' 
             }
         }
     }
