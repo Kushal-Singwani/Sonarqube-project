@@ -25,8 +25,8 @@ pipeline {
                 dir('src/frontend') {
                     withSonarQubeEnv('sonar-server') {
                         sh ''' $SCANNER_HOME/bin/sonar-scanner \
-                        -Dsonar.projectName=sonar-jenkins-project \
-                        -Dsonar.projectKey=sonar-jenkins-project '''
+                        -Dsonar.projectName=Sonarqube-project \
+                        -Dsonar.projectKey=Sonarqube-project'''
                     }
                 }
             }
@@ -65,7 +65,7 @@ pipeline {
         stage("ImagePush") {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-repo-creds', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
+                    withCredentials([usernamePassword(credentialsId: 'Docker-Token', usernameVariable: 'docker_user', passwordVariable: 'docker_pass')]) {
                     sh "docker tag sonarci ${env.docker_user}/sonarci:${BUILD_NUMBER}"
                     sh "docker login -u ${env.docker_user} -p ${env.docker_pass}"
                     sh "docker push ${env.docker_user}/sonarci:${BUILD_NUMBER}"
