@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git credentialsId:'jenkins-project-repo',url:'https://github.com/Kushal-Singwani/Sonarqube-project.git',branch:'kushal'
+                git credentialsId:'Github-token',url:'https://github.com/Kushal-Singwani/Sonarqube-project.git',branch:'kushal'
             }
         }
         stage('Sonarqube Analysis') {
