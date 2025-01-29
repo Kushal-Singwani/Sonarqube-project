@@ -3,7 +3,7 @@ pipeline {
         label 'agentkushal'
     }
     tools {
-        jdk 'jdk'
+        jdk 'jdk17'
         nodejs 'nodejs'
     }
     environment  {
