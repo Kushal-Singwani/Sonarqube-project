@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'agent1'
+        label 'agentkushal'
     }
     tools {
         jdk 'jdk'
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git credentialsId:'jenkins-project-repo',url:'https://github.com/mishti30/jenkins-project.git',branch:'jenkinssonar'
+                git credentialsId:'jenkins-project-repo',url:'https://github.com/Kushal-Singwani/Sonarqube-project.git',branch:'kushal'
             }
         }
         stage('Sonarqube Analysis') {
